@@ -1,21 +1,20 @@
-// 
+const username = document.querySelector("#username");
+const pass = document.querySelector("#password");
+const pass2 = document.querySelector("#password2");
+const email = document.querySelector("#email");
+const sendBtn = document.querySelector(".send");
+const clearBtn = document.querySelector(".clear");
+const popup = document.querySelector(".popup");
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetchImages();
-});
 
-async function fetchImages() {
-    try {
-        const response = await fetch('https://api.unsplash.com/photos/random?count=10&client_id=YOUR_ACCESS_KEY');
-        const images = await response.json();
-
-        const gallery = document.querySelector('.gallery');
-        images.forEach(image => {
-            const imgElement = document.createElement('img');
-            imgElement.src = image.urls.small;
-            gallery.appendChild(imgElement);
-        });
-    } catch (error) {
-        console.error('Błąd podczas pobierania obrazów:', error);
-    }
+const  checkform = input => {
+console.log(input);
 }
+
+
+clearBtn.addEventListener("click", e=>{
+    e.preventDefault();
+    [username, pass, pass2, email].forEach(el =>{
+        el.value = "";
+    })
+})
